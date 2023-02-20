@@ -17,7 +17,7 @@ export async function getServerSideProps({ query: { postId } }: any) {
 }
 
 
-const update = (props: { post: PostProps}) => {
+const Update = (props: { post: PostProps}) => {
     const router = useRouter();
     const [errors, setErrors] = useState<Partial<typeof formData>>({});
 
@@ -128,4 +128,4 @@ const update = (props: { post: PostProps}) => {
     );
 }
 
-export default update;
+export default Update;

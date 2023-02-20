@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 
-const create = () => {
+const Create = () => {
     const router = useRouter();
     const [errors, setErrors] = useState<Partial<typeof formData>>({});
 
@@ -123,4 +123,4 @@ const create = () => {
     );
 }
 
-export default create;
+export default Create;

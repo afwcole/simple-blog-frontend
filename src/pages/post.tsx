@@ -16,7 +16,7 @@ export async function getServerSideProps({ query: { postId } }: any) {
     };
 }
 
-const post = (props: { post: PostProps }) => {
+const Post = (props: { post: PostProps }) => {
     return (
         <>
             <Head>
@@ -44,4 +44,4 @@ const post = (props: { post: PostProps }) => {
     )
 }
 
-export default post
+export default Post;

@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+import Link from 'next/link';
 
 export async function getServerSideProps(context: any) {
     const response = await fetch(`${SS_API_URL}/posts`);
@@ -17,7 +18,7 @@ export async function getServerSideProps(context: any) {
     }
 }
 
-const all_posts = (props: { posts: PostProps[] }) => {
+const AllPosts = (props: { posts: PostProps[] }) => {
     const router = useRouter();
 
     const handleEdit = (postId: string, e: any) => {
@@ -59,11 +60,11 @@ const all_posts = (props: { posts: PostProps[] }) => {
                 <div className="container flex flex-col mx-4 md:w-2/3 md:m-auto">
                     {props.posts.map((post) => (
                         <div key={post.postId} className="mx-10">
-                            <a href={"/post?" + new URLSearchParams({ postId: post.postId })}>
+                            <Link href={"/post?" + new URLSearchParams({ postId: post.postId })}>
                                 <h1 className="mt-10 mb-2 text-xl md:text-2xl font-extrabold hover:underline">
                                     {post.title}
                                 </h1>
-                            </a>
+                            </Link>
                             <div className='flex items-center'>
                                 <p className="text-sm md:text-base font-bold text-gray-700 mr-5"> {post.author} </p>
                                 <p className="text-sm text-gray-500">Published {post.createdAt}</p>
@@ -102,4 +103,4 @@ const all_posts = (props: { posts: PostProps[] }) => {
     );
 };
 
-export default all_posts;
+export default AllPosts;
